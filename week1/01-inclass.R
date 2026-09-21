@@ -2,9 +2,9 @@
 # Week 1: In-class assignment
 # Data: openintro::yrbss
 #--------------------------------------------------
-# Open the chl5233 folder in Positron, then run this script from the top.
+# Open the chl5233 folder in Positron, then open week1/01-inclass.R.
 # On macOS, Command + Enter runs selected code; Command + S saves the file.
-# Outputs are saved to results/01-inclass/ under the working directory.
+# Outputs are saved to week1/results/01-inclass/ in the repository.
 
 # 0. Packages and data ---------------------------------------------
 # Install only packages that are not already installed.
@@ -28,7 +28,15 @@ library(flextable)
 # physically_active_7d: days with 60+ minutes of activity in the past 7 days.
 # Documentation: https://openintrostat.github.io/openintro/reference/yrbss.html
 data("yrbss", package = "openintro")
-out_dir <- file.path("results", "01-inclass")
+# Support running from either the repository root or the week1 folder.
+week_dir <- if (file.exists(file.path("week1", "01-inclass.R"))) {
+  "week1"
+} else if (basename(getwd()) == "week1" && file.exists("01-inclass.R")) {
+  "."
+} else {
+  stop("Open the chl5233 or week1 folder before running this script.")
+}
+out_dir <- file.path(week_dir, "results", "01-inclass")
 dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
 
 # 1. Summary table: increasing grade order and capitalized labels ---
@@ -130,7 +138,7 @@ writeLines(capture.output(sessionInfo()), file.path(out_dir, "session-info.txt")
 message("Finished. Results saved in: ", normalizePath(out_dir))
 
 # 5. GitHub --------------------------------------------------------
-# Run these commands in the Positron Terminal, not the R Console:
-# git add 01-inclass.R
+# Run these commands in the Positron Terminal from the repository root:
+# git add week1/01-inclass.R
 # git commit -m "Update Week 1 in-class assignment"
 # git push
