@@ -5,3 +5,13 @@
 .Rproj.user/
 Rplots.pdf
 results/
+.quarto/
+*_cache/
+*_files/
+*.knit.md
+*.utf8.md
+week2/reports/*.tex
+week2/reports/*.aux
+week2/reports/*.log
+week2/reports/*.out
+week2/reports/*.toc

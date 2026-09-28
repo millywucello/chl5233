@@ -1,0 +1,223 @@
+---
+title: "CHL5233: Quarto in-class assignment"
+subtitle: "Geographic coverage of the supplied country list"
+author: "Milly Wu"
+format:
+  pdf:
+    pdf-engine: xelatex
+    documentclass: article
+    fontsize: 10pt
+    colorlinks: true
+    geometry:
+      - top=30mm
+      - bottom=22mm
+      - left=20mm
+      - right=20mm
+      - heightrounded
+execute:
+  echo: false
+  warning: false
+  message: false
+  error: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+# include: false executes the setup while hiding its code and all output.
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+options(dplyr.summarise.inform = FALSE)
+region_colors <- c(
+  Africa = "#0072B2", Americas = "#D55E00", Asia = "#009E73",
+  Europe = "#CC79A7", Oceania = "#E69F00"
+)
+theme_set(theme_minimal(base_size = 11))
+```
+
+This report describes the countries in the supplied course files, matches them
+using three-letter ISO codes, and summarizes their geographic distribution.
+The analysis counts countries; it does not estimate conflict exposure or health
+outcomes.
+
+## Read the source data
+
+```{r}
+#| label: read-countries
+#| echo: true
+countries <- read.table(
+  "../data/raw/countries.txt", header = TRUE,
+  stringsAsFactors = FALSE, fileEncoding = "latin1"
+)
+dim(countries)
+```
+
+The country list contains **`r nrow(countries)` countries** and
+**`r ncol(countries)` columns**, with `r n_distinct(countries$ISO)` distinct
+ISO codes. The supplied list contains 186 countries, although the paper title
+quoted in the assignment refers to 181 countries. This report uses the supplied
+list without dropping countries to match that title.
+
+```{r}
+#| label: read-regions
+#| echo: true
+regions <- read.table(
+  "../data/raw/regions.txt", header = TRUE,
+  stringsAsFactors = FALSE, fileEncoding = "latin1"
+)
+dim(regions)
+```
+
+The region lookup contains **`r nrow(regions)` country or territory records** and
+**`r ncol(regions)` columns**. The raw file includes imperfectly encoded country
+names; ISO codes and geographic category labels are used for matching and
+summaries. The original files are preserved unchanged.
+
+## Create the analytical data set
+
+```{r}
+#| label: match-countries
+#| echo: true
+analysis_data <- regions |>
+  semi_join(countries, by = c("country_code" = "ISO"))
+unmatched <- countries |>
+  anti_join(regions, by = c("ISO" = "country_code"))
+```
+
+```{r}
+#| label: validate-matches
+#| include: false
+stopifnot(!anyDuplicated(countries$ISO),
+          !anyDuplicated(regions$country_code),
+          nrow(unmatched) == 0L,
+          nrow(analysis_data) == nrow(countries),
+          all(!is.na(analysis_data$region) & analysis_data$region != ""),
+          all(!is.na(analysis_data$sub_region) & analysis_data$sub_region != ""))
+```
+
+All **`r nrow(analysis_data)` countries** match successfully; there are
+**`r nrow(unmatched)` unmatched codes**. The analytical data cover
+**`r n_distinct(analysis_data$region)` regions** and
+**`r n_distinct(analysis_data$sub_region)` sub-regions**.
+
+{{< pagebreak >}}
+
+## Tabulate countries by region and sub-region
+
+```{r}
+#| label: count-regions
+region_counts <- analysis_data |>
+  group_by(region) |>
+  summarise(Count = n(), .groups = "drop") |>
+  arrange(desc(Count), region)
+
+subregion_counts <- analysis_data |>
+  group_by(region, sub_region) |>
+  summarise(Count = n(), .groups = "drop") |>
+  arrange(desc(Count), sub_region)
+
+stopifnot(sum(region_counts$Count) == nrow(countries),
+          sum(subregion_counts$Count) == nrow(countries))
+```
+
+Each country contributes once to each table. Both sets of counts sum to
+**`r nrow(analysis_data)`**.
+
+### Countries by region
+
+```{r}
+#| label: tbl-regions
+#| tbl-cap: "Number of supplied study countries in each region."
+kable(region_counts, col.names = c("Region", "Count"),
+      booktabs = TRUE, align = c("l", "r")) |>
+  kable_styling(latex_options = "HOLD_position", font_size = 10)
+```
+
+### Countries by sub-region
+
+```{r}
+#| label: tbl-subregions
+#| tbl-cap: "Number of supplied study countries in each sub-region."
+subregion_counts |>
+  select(sub_region, Count) |>
+  kable(col.names = c("Sub-region", "Count"),
+        booktabs = TRUE, align = c("l", "r")) |>
+  kable_styling(latex_options = "HOLD_position", font_size = 10)
+```
+
+Africa contains the most included countries (**`r region_counts$Count[region_counts$region == "Africa"]`**),
+while Oceania contains the fewest (**`r region_counts$Count[region_counts$region == "Oceania"]`**).
+Sub-Saharan Africa has the largest sub-region count
+(**`r subregion_counts$Count[subregion_counts$sub_region == "Sub-Saharan Africa"]`**).
+
+{{< pagebreak >}}
+
+## Visualize the number of countries by region
+
+The chart below addresses the assignment's overall goal of comparing the number
+of included countries across regions. Bars are ordered from the largest count
+at the top to the smallest at the bottom.
+
+```{r}
+#| label: fig-regions
+#| fig-cap: "Geographic coverage of the 186 countries in the supplied list."
+#| fig-width: 7
+#| fig-height: 3.4
+#| fig-pos: H
+#| echo: true
+ggplot(analysis_data,
+       aes(y = forcats::fct_infreq(region), fill = region)) +
+  geom_bar(width = 0.65) +
+  scale_y_discrete(limits = rev(region_counts$region)) +
+  scale_fill_manual(values = region_colors, guide = "none") +
+  scale_x_continuous(breaks = seq(0, 60, 10)) +
+  labs(x = "Number of countries", y = "Region") +
+  theme(panel.grid.major.y = element_blank(),
+        panel.grid.minor = element_blank())
+```
+
+**Interpretation.** The country counts vary across regions. These bars describe
+the composition of the supplied study list, not regional population size,
+conflict prevalence, or the number of people affected by conflict.
+
+{{< pagebreak >}}
+
+## Visualize the number of countries by sub-region
+
+Each bar represents one sub-region. Colors identify its parent region. Counts
+run from largest at the top to smallest at the bottom; ties are ordered
+alphabetically. `geom_bar()` counts the country rows directly.
+
+```{r}
+#| label: fig-subregions
+#| fig-cap: "Countries by sub-region, ordered by count and colored by region."
+#| fig-width: 7
+#| fig-height: 5.5
+#| fig-pos: H
+subregion_order <- rev(subregion_counts$sub_region)
+analysis_data <- analysis_data |>
+  mutate(sub_region = factor(sub_region, levels = subregion_order))
+
+ggplot(analysis_data, aes(y = sub_region, fill = region)) +
+  geom_bar(width = 0.7) +
+  geom_text(stat = "count", aes(label = after_stat(count)),
+            hjust = -0.2, size = 3.2) +
+  scale_fill_manual(values = region_colors) +
+  scale_x_continuous(breaks = seq(0, 50, 10),
+                     expand = expansion(mult = c(0, 0.1))) +
+  labs(x = "Number of countries", y = NULL, fill = "Region") +
+  theme(legend.position = "bottom",
+        panel.grid.major.y = element_blank(),
+        panel.grid.minor = element_blank())
+```
+
+**Interpretation.** Sub-Saharan Africa and Latin America and the Caribbean
+contain `r subregion_counts$Count[subregion_counts$sub_region == "Sub-Saharan Africa"]`
+and `r subregion_counts$Count[subregion_counts$sub_region == "Latin America and the Caribbean"]`
+included countries, respectively. The chart uses the regional classification
+provided in `regions.txt`; it does not redefine the sub-regions.
+
+**Data source.** Course-provided `countries.txt` and `regions.txt`, associated
+with the assignment on *Implications of armed conflict for maternal and child
+health: A regression analysis of data from 181 countries for 2000-2019*.
