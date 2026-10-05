@@ -1,0 +1,31 @@
+"check","passed"
+"Both implementations have the same dimensions",TRUE
+"Both implementations have the same ordered column names",TRUE
+"All 74400 output cells and missing-value positions match exactly",TRUE
+"Exactly 3720 country-years and 20 variables",TRUE
+"Exactly 186 countries and years 2000 through 2019",TRUE
+"One row per country-year",TRUE
+"Every country has 20 years",TRUE
+"Country and region labels are present",TRUE
+"All three event indicators are complete and binary",TRUE
+"Exposure in 2000 matches all source-country statuses in 1999",TRUE
+"Exposure in 2019 matches all source-country statuses in 2018",TRUE
+"All source values and NAs preserved: maternal_mortality",TRUE
+"All source values and NAs preserved: infant_mortality",TRUE
+"All source values and NAs preserved: neonatal_mortality",TRUE
+"All source values and NAs preserved: under5_mortality",TRUE
+"All source values and NAs preserved: gdp_1000",TRUE
+"All source values and NAs preserved: oecd",TRUE
+"All source values and NAs preserved: pop_dens",TRUE
+"All source values and NAs preserved: urban",TRUE
+"All source values and NAs preserved: age_dep",TRUE
+"All source values and NAs preserved: male_edu",TRUE
+"All source values and NAs preserved: temp",TRUE
+"All source values and NAs preserved: rainfall_1000",TRUE
+"Sum events within a conflict; 25 qualifies; separate 12 and 13 do not",TRUE
+"Lag uses calendar years even when source years have gaps",TRUE
+"Missing death counts on real conflicts stop processing",TRUE
+"A no-event placeholder mixed with events stops processing",TRUE
+"Duplicate country-year keys stop processing",TRUE
+"Disasters use selected years/types, with repeated events counted once",TRUE
+"Pooled country totals would change 13 supplied country-years",TRUE
