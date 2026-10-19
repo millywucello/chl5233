@@ -15,3 +15,5 @@ week2/reports/*.aux
 week2/reports/*.log
 week2/reports/*.out
 week2/reports/*.toc
+*.Rcheck/
+week4/*.tar.gz

@@ -1,0 +1,63 @@
+---
+title: "Prepare the maternal mortality data"
+author: "Milly Wu"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Prepare the maternal mortality data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+The maternal mortality file used in Week 3 has one row per country and one
+column per year. `prepare_mortality()` turns those year columns into rows for
+joining to other country-year data.
+
+```{r}
+library(pivotwbmilly)
+dim(maternal_mortality)
+maternal_mortality[maternal_mortality$iso == "CAN",
+                   c("iso", "X2000", "X2017", "X2018", "X2019")]
+```
+
+The example has 186 countries and 22 columns: a country code, an indicator
+description, and 20 year columns. Values are maternal deaths per 100,000 live
+births. All 2018 and 2019 values are missing in the supplied extract.
+
+```{r}
+maternal_long <- prepare_mortality(maternal_mortality, "maternal_mortality")
+dim(maternal_long)
+head(maternal_long)
+sum(is.na(maternal_long$maternal_mortality))
+```
+
+The output has 3,720 rows and three columns. It keeps all 426 missing values.
+Each country still has 20 rows, even if some years have no reported value.
+
+For an analysis restricted to a few years, pass them in `years` and choose a
+shorter measure name if needed:
+
+```{r}
+recent <- prepare_mortality(maternal_mortality, "mmr", years = 2015:2017)
+recent[recent$iso == "CAN", ]
+```
+
+The same function accepts the infant, neonatal, and under-five mortality tables
+from Week 3 because they use the same `iso` and `XYYYY` columns. It returns the
+measure column under the name passed in `outcome_name`.
+
+Missing year columns and repeated country codes cause an error. For example,
+requesting 2020 fails because that column is absent:
+
+```{r}
+tryCatch(
+  prepare_mortality(maternal_mortality, "mmr", years = 2020),
+  error = function(e) conditionMessage(e)
+)
+```
+
+This package performs the reshape only. Country exclusions, imputations, and
+the conflict and covariate joins remain separate analytical decisions.

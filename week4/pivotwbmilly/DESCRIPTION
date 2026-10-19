@@ -1,0 +1,27 @@
+Package: pivotwbmilly
+Title: Reshape World Bank Mortality Data
+Version: 0.1.0
+Authors@R: person("Milly", "Wu", role = c("aut", "cre"),
+    email = "125825028+millywucello@users.noreply.github.com")
+Description: Converts wide World Bank mortality tables into country-year
+    records using the data preparation function from CHL5233 Week 3.
+    Includes the course-supplied maternal mortality data, examples, and
+    checks for missing columns and duplicate country codes.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 4.1.0)
+Imports:
+    dplyr (>= 1.0.0),
+    rlang,
+    tidyr (>= 1.2.0)
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+Roxygen: list(markdown = TRUE)
+URL: https://github.com/millywucello/chl5233/tree/main/week4/pivotwbmilly
+BugReports: https://github.com/millywucello/chl5233/issues
+RoxygenNote: 7.2.3
