@@ -13,8 +13,8 @@ data in an installable R package. Start with \code{\link[=prepare_mortality]{pre
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/millywucello/chl5233/tree/main/week4/pivotwbmilly}
-  \item Report bugs at \url{https://github.com/millywucello/chl5233/issues}
+  \item \url{https://github.com/millywucello/pivotwbmilly}
+  \item Report bugs at \url{https://github.com/millywucello/pivotwbmilly/issues}
 }
 
 }

@@ -45,9 +45,10 @@ head(maternal_long)
 ?prepare_mortality
 ```
 
-For an installed copy, follow the [package installation instructions](pivotwbmilly/README.md).
-The GitHub install uses `subdir = "week4/pivotwbmilly"`. The package also installs
-locally with `R CMD INSTALL week4/pivotwbmilly` from the repository root.
+The standalone package repository is [millywucello/pivotwbmilly](https://github.com/millywucello/pivotwbmilly).
+Install it with `remotes::install_github("millywucello/pivotwbmilly")`.
+This course copy also installs locally with
+`R CMD INSTALL week4/pivotwbmilly` from the repository root.
 
 ## Check the assignment
 
@@ -74,9 +75,10 @@ installation and the standalone example also ran successfully. See
 
 ## Peer review and repository layout
 
-The assignment calls for a separate repository containing only the package.
-This copy is in `chl5233/week4` as requested. Its package directory can be copied
-to the root of a separate repository if that layout is required for submission.
+The package is deployed in its own repository,
+[millywucello/pivotwbmilly](https://github.com/millywucello/pivotwbmilly),
+with `DESCRIPTION`, `R/`, `man/`, data, tests, and the tutorial at the repository
+root. This `week4` folder retains the course copy and assignment check results.
 
 The [peer review notes](peer_review.md) give installation and trial tasks for a
 classmate. No classmate feedback has been received yet. The automated tests and

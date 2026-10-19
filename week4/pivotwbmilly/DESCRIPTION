@@ -22,6 +22,6 @@ Suggests:
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 Roxygen: list(markdown = TRUE)
-URL: https://github.com/millywucello/chl5233/tree/main/week4/pivotwbmilly
-BugReports: https://github.com/millywucello/chl5233/issues
+URL: https://github.com/millywucello/pivotwbmilly
+BugReports: https://github.com/millywucello/pivotwbmilly/issues
 RoxygenNote: 7.2.3

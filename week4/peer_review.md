@@ -8,8 +8,7 @@ Run in a fresh R session:
 
 ```r
 install.packages("remotes")
-remotes::install_github("millywucello/chl5233",
-                        subdir = "week4/pivotwbmilly", upgrade = "never")
+remotes::install_github("millywucello/pivotwbmilly", upgrade = "never")
 library(pivotwbmilly)
 example("prepare_mortality", package = "pivotwbmilly")
 ?prepare_mortality

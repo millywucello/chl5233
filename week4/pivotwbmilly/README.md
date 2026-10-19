@@ -9,15 +9,13 @@ the maternal mortality file used in class.
 ```r
 install.packages("remotes")
 remotes::install_github(
-  "millywucello/chl5233",
-  subdir = "week4/pivotwbmilly",
+  "millywucello/pivotwbmilly",
   upgrade = "never",
   build_vignettes = TRUE
 )
 ```
 
-The package is inside the course repository, so `subdir` is required. Runtime
-dependencies are `dplyr`, `tidyr`, and `rlang`. Building the tutorial also needs
+Runtime dependencies are `dplyr`, `tidyr`, and `rlang`. Building the tutorial also needs
 `knitr`, `rmarkdown`, and Pandoc.
 
 ## Example

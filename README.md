@@ -7,7 +7,7 @@ Course materials are organized by week.
 | [Week 1](week1/) | [R script](week1/01-inclass.R) and [assignment guide](week1/README.md): YRBSS summaries, physical activity, and BMI |
 | [Week 2](week2/) | [Quarto source](week2/reports/quarto_inclass.qmd), [PDF report](week2/reports/quarto_inclass.pdf), and [assignment guide](week2/README.md): country matching, regional summaries, and bar charts |
 | [Week 3](week3/) | [R script](week3/scripts/create_final_data.R), [final dataset](week3/data/processed/final_data.csv), and [comparison report](week3/reports/comparison.md): reusable functions, mortality/disaster/conflict preparation, one-year lag, and validated country-year merges |
-| [Week 4](week4/) | [pivotwbmilly package](week4/pivotwbmilly/), [tests](week4/pivotwbmilly/tests/testthat/), and [check results](week4/reports/): package the Week 3 mortality function with example data and roxygen documentation |
+| [Week 4](week4/) | [pivotwbmilly package](https://github.com/millywucello/pivotwbmilly), [tests](week4/pivotwbmilly/tests/testthat/), and [check results](week4/reports/): package the Week 3 mortality function with example data and roxygen documentation |
 
 ## Repository layout
 
@@ -89,8 +89,7 @@ The final dataset contains 3,720 country-year rows and 20 variables. The two imp
 Install from GitHub in the R Console:
 
 ```r
-remotes::install_github("millywucello/chl5233",
-                        subdir = "week4/pivotwbmilly", upgrade = "never")
+remotes::install_github("millywucello/pivotwbmilly", upgrade = "never")
 library(pivotwbmilly)
 maternal_long <- prepare_mortality(maternal_mortality, "maternal_mortality")
 ```
