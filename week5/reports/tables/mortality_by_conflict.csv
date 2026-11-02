@@ -1,0 +1,9 @@
+"armed_conflict_lag1","outcome","observed_n","missing_n","median","q1","q3"
+0,"infant_mortality",3009,20,16.2,6.3,37.2
+0,"maternal_mortality",2679,350,52,12,202.5
+0,"neonatal_mortality",3009,20,10.4,4.1,22.4
+0,"under5_mortality",3009,20,18.8,7.4,48.1
+1,"infant_mortality",691,0,42.7,19.2,66.7
+1,"maternal_mortality",615,76,251,68.5,640
+1,"neonatal_mortality",691,0,25.9,12,36.6
+1,"under5_mortality",691,0,58.4,22.8,98.8

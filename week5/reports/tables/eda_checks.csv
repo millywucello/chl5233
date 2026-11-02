@@ -1,0 +1,7 @@
+"check","passed"
+"Unique final keys",TRUE
+"Complete source coverage",TRUE
+"Lagged exposure totals agree",TRUE
+"No negative mortality",TRUE
+"Mortality ordering",TRUE
+"No nonfinite observed numeric values",TRUE

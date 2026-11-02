@@ -8,6 +8,7 @@ Course materials are organized by week.
 | [Week 2](week2/) | [Quarto source](week2/reports/quarto_inclass.qmd), [PDF report](week2/reports/quarto_inclass.pdf), and [assignment guide](week2/README.md): country matching, regional summaries, and bar charts |
 | [Week 3](week3/) | [R script](week3/scripts/create_final_data.R), [final dataset](week3/data/processed/final_data.csv), and [comparison report](week3/reports/comparison.md): reusable functions, mortality/disaster/conflict preparation, one-year lag, and validated country-year merges |
 | [Week 4](week4/) | [pivotwbmilly package](https://github.com/millywucello/pivotwbmilly), [tests](week4/pivotwbmilly/tests/testthat/), and [check results](week4/reports/): package the Week 3 mortality function with example data and roxygen documentation |
+| [Week 5](week5/) | [Comparison](week5/reports/compare_final_data.qmd) and [EDA](week5/reports/eda.qmd): clean-session reproducibility, annual conflict counts, missingness, and mortality trends |
 
 ## Repository layout
 
@@ -52,7 +53,7 @@ chl5233/
     reports/
 ```
 
-Use `week5/` and subsequent folders for future assignments.
+Use `week6/` and subsequent folders for future assignments.
 
 ## Run Week 1
 

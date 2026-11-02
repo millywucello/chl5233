@@ -1,0 +1,111 @@
+---
+title: "Week 5: Comparison of the final datasets"
+author: "Milly Wu"
+format:
+  html:
+    embed-resources: true
+    toc: true
+    theme: cosmo
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+checks <- read.csv("validation/validation_checks.csv")
+missing <- read.csv("validation/missingness.csv")
+timings <- read.csv("validation/runtime.csv")
+main <- read.csv("../data/processed/final_data.csv", fileEncoding = "UTF-8")
+agent <- read.csv("../data/processed/final_data_agent.csv", fileEncoding = "UTF-8")
+stopifnot(all(checks$passed), identical(main, agent))
+```
+
+## What was compared
+
+The two Week 3 implementations were rerun from the unchanged raw files in
+separate `Rscript --vanilla` processes. The primary script uses `dplyr` and
+`tidyr`; the comparison script uses base R reshaping, aggregation, and merging.
+Each script reads the raw inputs and writes its own output file. Their exported
+CSVs are then compared, including column order, types, values, and missingness.
+
+Both implementations were prepared with coding-agent assistance in Week 3.
+This is a comparison between two implementations of the same specification.
+It does not establish an independent human-versus-agent validation or prove
+that the supplied study definition is correct.
+
+## Results
+
+Each dataset contains **`r nrow(main)` country-years and `r ncol(main)` variables**.
+All **`r nrow(main) * ncol(main)` cells** and their missing-value positions match.
+The regenerated files also match the archived Week 3 files exactly. There are
+no output discrepancies requiring a correction to the final data.
+
+```{r}
+knitr::kable(data.frame(
+  Item = c("Countries", "Outcome years", "Country-year rows", "Duplicate keys",
+           "Prior-year conflict = 1", "Earthquake = 1", "Drought = 1"),
+  Result = c(length(unique(main$iso)), "2000-2019", nrow(main),
+    anyDuplicated(main[c("iso", "year")]), sum(main$armed_conflict_lag1),
+    sum(main$earthquake), sum(main$drought))))
+```
+
+The `r nrow(checks)` checks include raw mortality and covariate values, unique
+keys, one-year lag endpoints, and deliberately chosen edge cases. A 25-death
+conflict qualifies; separate conflicts with 12 and 13 deaths do not jointly
+qualify under the selected rule. Missing values on real conflict events cause
+an error rather than becoming zero.
+
+```{r}
+knitr::kable(checks, col.names = c("Check", "Passed"))
+```
+
+## Decisions retained after review
+
+Conflict deaths are summed within country, source year, and conflict ID. A
+country-year is exposed if at least one conflict has 25 or more deaths, then
+that flag is assigned to the following outcome year. For example, 2000 outcomes
+use 1999 conflict exposure. All supplied source years are present. Pooling
+unrelated conflict IDs before applying the threshold would change 13 exposure
+values, as recorded in
+[conflict_definition_differences.csv](validation/conflict_definition_differences.csv).
+That alternative is a definition change, not a disagreement between these scripts.
+
+Missing outcomes and covariates are preserved. No country is dropped because
+of missing measures. No-event conflict placeholders have both the conflict ID
+and deaths missing; they are distinct from incomplete event records. Repeated
+rows in the reduced conflict extract are retained because a unique event
+identifier is absent.
+
+```{r}
+knitr::kable(missing[missing$missing_n > 0, ],
+  col.names = c("Variable", "Missing rows", "Missing (%)"), digits = 2)
+```
+
+The panel includes all 186 countries supplied for class. It does not impose the
+published paper's final sample exclusions. Covariate units remain as supplied;
+the raw CSV does not provide a complete measurement codebook.
+
+## Reproducibility and next step
+
+The validation runs succeeded in clean R sessions. The scripts use paths within
+`week5`, declare the needed packages, and do not require downloaded data during
+execution. Input checksums and the R session details are in `validation/`.
+
+```{r}
+knitr::kable(timings, col.names = c("Implementation", "Elapsed seconds"), digits = 3)
+```
+
+These one-run timings include R startup and package loading. They are not a
+controlled performance comparison. Both implementations are practical for the
+course data. The primary script remains the source for EDA because its named
+steps are easier to follow. No data corrections were made after comparison.
+
+From the repository root:
+
+```sh
+Rscript --vanilla week5/R/validate_data.R
+Rscript --vanilla week5/R/summarise_eda.R
+```
+
+The exploratory results are in [eda.html](eda.html).

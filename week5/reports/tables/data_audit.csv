@@ -1,0 +1,8 @@
+"item","count"
+"Raw conflict rows",208531
+"Real event records",205835
+"No-event placeholders",2696
+"Repeated rows across all supplied fields",179141
+"Missing country/year keys",0
+"Incomplete real event records",0
+"Duplicate final country-year keys",0
