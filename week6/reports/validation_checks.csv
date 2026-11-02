@@ -1,0 +1,28 @@
+"check","passed"
+"Observation count is 3720 and country-year keys are unique",TRUE
+"Exposure groups partition all country-years",TRUE
+"Numeric cells and denominators: overall",TRUE
+"Maternal missing cell: overall",TRUE
+"Regional counts sum to group size: overall",TRUE
+"Binary count: overall oecd",TRUE
+"Binary count: overall earthquake",TRUE
+"Binary count: overall drought",TRUE
+"Numeric cells and denominators: no_conflict",TRUE
+"Maternal missing cell: no_conflict",TRUE
+"Regional counts sum to group size: no_conflict",TRUE
+"Binary count: no_conflict oecd",TRUE
+"Binary count: no_conflict earthquake",TRUE
+"Binary count: no_conflict drought",TRUE
+"Numeric cells and denominators: conflict",TRUE
+"Maternal missing cell: conflict",TRUE
+"Regional counts sum to group size: conflict",TRUE
+"Binary count: conflict oecd",TRUE
+"Binary count: conflict earthquake",TRUE
+"Binary count: conflict drought",TRUE
+"Country overlap is stated correctly",TRUE
+"Exactly the 13 endpoint-increase countries are plotted",TRUE
+"Three countries are excluded for missing endpoints",TRUE
+"Every plotted country has all 18 annual observations",TRUE
+"Plotted values equal final data",TRUE
+"2018-2019 maternal values are entirely missing",TRUE
+"PDF and PNG deliverables exist",TRUE

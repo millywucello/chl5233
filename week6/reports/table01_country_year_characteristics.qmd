@@ -1,0 +1,61 @@
+---
+format:
+  pdf:
+    pdf-engine: xelatex
+    documentclass: article
+    fontsize: 10pt
+    geometry:
+      - landscape
+      - margin=13mm
+    include-in-header:
+      text: |
+        \usepackage{booktabs}
+        \usepackage{float}
+        \usepackage{xcolor}
+        \pagestyle{empty}
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+library(knitr)
+library(kableExtra)
+tab <- read.csv("../outputs/table01_country_year_characteristics.csv", check.names = FALSE)
+```
+
+\noindent\textbf{Table 1. Country-year characteristics by conflict exposure in the previous year}
+
+\noindent Course panel of 186 countries, 2000-2019. All eligible country-years are retained before outcome-specific model exclusions.
+
+```{r}
+knitr::kable(tab, format = "latex", booktabs = TRUE, linesep = "",
+  col.names = c("Characteristic", "Summary", "Missing n", "Summary", "Missing n", "Summary", "Missing n"),
+  align = c("l", "r", "r", "r", "r", "r", "r"), escape = TRUE) |>
+  add_header_above(c(" " = 1, "Overall (N = 3,720)" = 2,
+                    "No prior conflict (N = 3,029)" = 2,
+                    "Prior conflict (N = 691)" = 2)) |>
+  kable_styling(latex_options = "HOLD_position", font_size = 9, position = "center") |>
+  row_spec(c(5, 10, 14, 21), extra_latex_after = "\\addlinespace[2pt]") |>
+  row_spec(0, bold = TRUE)
+```
+
+\vspace{-2mm}
+\begin{minipage}{\linewidth}
+\small
+Values are median [25th, 75th percentile] for continuous variables, except calendar years (range), and n (column \%) for categorical variables. Summaries use observed values;
+categorical percentages use the non-missing group denominator. Missing n is shown for every variable, including zero. A dash means not applicable or
+reported once in the Region header. OECD = Organisation for Economic Co-operation and Development. Each binary row reports the yes category. Conflict exposure has no missing values.
+
+N counts country-years, not independent countries. Each country has 20 years overall; exposure can change over time. There are 173 countries in the
+no-prior-conflict stratum and 88 in the prior-conflict stratum; 75 contribute to both. Summaries are unweighted. No significance tests are used.
+
+Prior conflict means at least one conflict with at least 25 deaths in that country during the preceding calendar year. Earthquake and drought refer
+to the outcome year. All 372 maternal values for 2018-2019 are missing; there are 54 additional missing maternal values in 2000-2017. No imputation or
+blanket complete-case exclusion was applied. Covariate scales are retained as supplied; the extract does not provide a complete unit codebook.
+
+Source: validated Week 5 final data, derived from the course World Bank, conflict, disaster, and covariate extracts. This table describes the course
+panel, not a reproduction of the published paper's final model sample. Prepared by Milly Wu.
+\end{minipage}

@@ -17,3 +17,8 @@ week2/reports/*.out
 week2/reports/*.toc
 *.Rcheck/
 week4/*.tar.gz
+week6/reports/*.tex
+week6/reports/*.aux
+week6/reports/*.log
+week6/reports/*.out
+week6/reports/table01_country_year_characteristics.pdf

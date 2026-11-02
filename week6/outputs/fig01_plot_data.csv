@@ -1,0 +1,235 @@
+"iso","country_name","year","maternal_mortality"
+"BRN","Brunei",2000,28
+"BRN","Brunei",2001,28
+"BRN","Brunei",2002,29
+"BRN","Brunei",2003,30
+"BRN","Brunei",2004,30
+"BRN","Brunei",2005,29
+"BRN","Brunei",2006,28
+"BRN","Brunei",2007,27
+"BRN","Brunei",2008,27
+"BRN","Brunei",2009,27
+"BRN","Brunei",2010,28
+"BRN","Brunei",2011,28
+"BRN","Brunei",2012,29
+"BRN","Brunei",2013,28
+"BRN","Brunei",2014,29
+"BRN","Brunei",2015,30
+"BRN","Brunei",2016,31
+"BRN","Brunei",2017,31
+"CAN","Canada",2000,9
+"CAN","Canada",2001,10
+"CAN","Canada",2002,10
+"CAN","Canada",2003,10
+"CAN","Canada",2004,10
+"CAN","Canada",2005,11
+"CAN","Canada",2006,11
+"CAN","Canada",2007,11
+"CAN","Canada",2008,12
+"CAN","Canada",2009,12
+"CAN","Canada",2010,11
+"CAN","Canada",2011,11
+"CAN","Canada",2012,11
+"CAN","Canada",2013,11
+"CAN","Canada",2014,11
+"CAN","Canada",2015,11
+"CAN","Canada",2016,10
+"CAN","Canada",2017,10
+"DOM","Dominican Republic",2000,80
+"DOM","Dominican Republic",2001,75
+"DOM","Dominican Republic",2002,75
+"DOM","Dominican Republic",2003,76
+"DOM","Dominican Republic",2004,81
+"DOM","Dominican Republic",2005,83
+"DOM","Dominican Republic",2006,86
+"DOM","Dominican Republic",2007,90
+"DOM","Dominican Republic",2008,92
+"DOM","Dominican Republic",2009,95
+"DOM","Dominican Republic",2010,96
+"DOM","Dominican Republic",2011,95
+"DOM","Dominican Republic",2012,94
+"DOM","Dominican Republic",2013,94
+"DOM","Dominican Republic",2014,94
+"DOM","Dominican Republic",2015,94
+"DOM","Dominican Republic",2016,94
+"DOM","Dominican Republic",2017,95
+"HTI","Haiti",2000,437
+"HTI","Haiti",2001,437
+"HTI","Haiti",2002,441
+"HTI","Haiti",2003,446
+"HTI","Haiti",2004,513
+"HTI","Haiti",2005,459
+"HTI","Haiti",2006,467
+"HTI","Haiti",2007,473
+"HTI","Haiti",2008,484
+"HTI","Haiti",2009,484
+"HTI","Haiti",2010,506
+"HTI","Haiti",2011,496
+"HTI","Haiti",2012,500
+"HTI","Haiti",2013,496
+"HTI","Haiti",2014,492
+"HTI","Haiti",2015,488
+"HTI","Haiti",2016,489
+"HTI","Haiti",2017,480
+"JAM","Jamaica",2000,77
+"JAM","Jamaica",2001,79
+"JAM","Jamaica",2002,78
+"JAM","Jamaica",2003,79
+"JAM","Jamaica",2004,80
+"JAM","Jamaica",2005,80
+"JAM","Jamaica",2006,79
+"JAM","Jamaica",2007,79
+"JAM","Jamaica",2008,79
+"JAM","Jamaica",2009,79
+"JAM","Jamaica",2010,79
+"JAM","Jamaica",2011,79
+"JAM","Jamaica",2012,79
+"JAM","Jamaica",2013,79
+"JAM","Jamaica",2014,78
+"JAM","Jamaica",2015,78
+"JAM","Jamaica",2016,80
+"JAM","Jamaica",2017,80
+"KWT","Kuwait",2000,10
+"KWT","Kuwait",2001,10
+"KWT","Kuwait",2002,10
+"KWT","Kuwait",2003,10
+"KWT","Kuwait",2004,10
+"KWT","Kuwait",2005,10
+"KWT","Kuwait",2006,10
+"KWT","Kuwait",2007,10
+"KWT","Kuwait",2008,10
+"KWT","Kuwait",2009,10
+"KWT","Kuwait",2010,10
+"KWT","Kuwait",2011,10
+"KWT","Kuwait",2012,11
+"KWT","Kuwait",2013,11
+"KWT","Kuwait",2014,11
+"KWT","Kuwait",2015,11
+"KWT","Kuwait",2016,12
+"KWT","Kuwait",2017,12
+"LBN","Lebanon",2000,28
+"LBN","Lebanon",2001,27
+"LBN","Lebanon",2002,26
+"LBN","Lebanon",2003,25
+"LBN","Lebanon",2004,24
+"LBN","Lebanon",2005,24
+"LBN","Lebanon",2006,24
+"LBN","Lebanon",2007,23
+"LBN","Lebanon",2008,23
+"LBN","Lebanon",2009,23
+"LBN","Lebanon",2010,23
+"LBN","Lebanon",2011,25
+"LBN","Lebanon",2012,25
+"LBN","Lebanon",2013,27
+"LBN","Lebanon",2014,28
+"LBN","Lebanon",2015,29
+"LBN","Lebanon",2016,29
+"LBN","Lebanon",2017,29
+"LBY","Libya",2000,70
+"LBY","Libya",2001,68
+"LBY","Libya",2002,66
+"LBY","Libya",2003,64
+"LBY","Libya",2004,61
+"LBY","Libya",2005,57
+"LBY","Libya",2006,55
+"LBY","Libya",2007,53
+"LBY","Libya",2008,52
+"LBY","Libya",2009,53
+"LBY","Libya",2010,53
+"LBY","Libya",2011,56
+"LBY","Libya",2012,55
+"LBY","Libya",2013,58
+"LBY","Libya",2014,63
+"LBY","Libya",2015,70
+"LBY","Libya",2016,73
+"LBY","Libya",2017,72
+"LCA","Saint Lucia",2000,86
+"LCA","Saint Lucia",2001,86
+"LCA","Saint Lucia",2002,90
+"LCA","Saint Lucia",2003,92
+"LCA","Saint Lucia",2004,89
+"LCA","Saint Lucia",2005,83
+"LCA","Saint Lucia",2006,82
+"LCA","Saint Lucia",2007,87
+"LCA","Saint Lucia",2008,93
+"LCA","Saint Lucia",2009,100
+"LCA","Saint Lucia",2010,109
+"LCA","Saint Lucia",2011,116
+"LCA","Saint Lucia",2012,116
+"LCA","Saint Lucia",2013,108
+"LCA","Saint Lucia",2014,104
+"LCA","Saint Lucia",2015,115
+"LCA","Saint Lucia",2016,117
+"LCA","Saint Lucia",2017,117
+"MUS","Mauritius",2000,59
+"MUS","Mauritius",2001,54
+"MUS","Mauritius",2002,54
+"MUS","Mauritius",2003,57
+"MUS","Mauritius",2004,54
+"MUS","Mauritius",2005,53
+"MUS","Mauritius",2006,55
+"MUS","Mauritius",2007,56
+"MUS","Mauritius",2008,53
+"MUS","Mauritius",2009,59
+"MUS","Mauritius",2010,66
+"MUS","Mauritius",2011,54
+"MUS","Mauritius",2012,63
+"MUS","Mauritius",2013,60
+"MUS","Mauritius",2014,70
+"MUS","Mauritius",2015,73
+"MUS","Mauritius",2016,67
+"MUS","Mauritius",2017,61
+"SYR","Syria",2000,26
+"SYR","Syria",2001,26
+"SYR","Syria",2002,26
+"SYR","Syria",2003,25
+"SYR","Syria",2004,26
+"SYR","Syria",2005,25
+"SYR","Syria",2006,26
+"SYR","Syria",2007,26
+"SYR","Syria",2008,26
+"SYR","Syria",2009,26
+"SYR","Syria",2010,27
+"SYR","Syria",2011,28
+"SYR","Syria",2012,28
+"SYR","Syria",2013,29
+"SYR","Syria",2014,30
+"SYR","Syria",2015,30
+"SYR","Syria",2016,30
+"SYR","Syria",2017,31
+"USA","United States",2000,12
+"USA","United States",2001,13
+"USA","United States",2002,13
+"USA","United States",2003,13
+"USA","United States",2004,13
+"USA","United States",2005,13
+"USA","United States",2006,14
+"USA","United States",2007,14
+"USA","United States",2008,14
+"USA","United States",2009,15
+"USA","United States",2010,15
+"USA","United States",2011,15
+"USA","United States",2012,16
+"USA","United States",2013,16
+"USA","United States",2014,16
+"USA","United States",2015,18
+"USA","United States",2016,19
+"USA","United States",2017,19
+"VEN","Venezuela",2000,119
+"VEN","Venezuela",2001,123
+"VEN","Venezuela",2002,135
+"VEN","Venezuela",2003,127
+"VEN","Venezuela",2004,119
+"VEN","Venezuela",2005,113
+"VEN","Venezuela",2006,114
+"VEN","Venezuela",2007,114
+"VEN","Venezuela",2008,116
+"VEN","Venezuela",2009,119
+"VEN","Venezuela",2010,117
+"VEN","Venezuela",2011,116
+"VEN","Venezuela",2012,116
+"VEN","Venezuela",2013,115
+"VEN","Venezuela",2014,113
+"VEN","Venezuela",2015,115
+"VEN","Venezuela",2016,121
+"VEN","Venezuela",2017,125

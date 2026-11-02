@@ -9,6 +9,7 @@ Course materials are organized by week.
 | [Week 3](week3/) | [R script](week3/scripts/create_final_data.R), [final dataset](week3/data/processed/final_data.csv), and [comparison report](week3/reports/comparison.md): reusable functions, mortality/disaster/conflict preparation, one-year lag, and validated country-year merges |
 | [Week 4](week4/) | [pivotwbmilly package](https://github.com/millywucello/pivotwbmilly), [tests](week4/pivotwbmilly/tests/testthat/), and [check results](week4/reports/): package the Week 3 mortality function with example data and roxygen documentation |
 | [Week 5](week5/) | [Comparison](week5/reports/compare_final_data.qmd) and [EDA](week5/reports/eda.qmd): clean-session reproducibility, annual conflict counts, missingness, and mortality trends |
+| [Week 6](week6/) | [Table 1](week6/outputs/table01_country_year_characteristics.pdf) and [maternal mortality figure](week6/outputs/fig01_maternal_mortality_increase.png): automated descriptive displays with missingness and endpoint selection |
 
 ## Repository layout
 
@@ -51,9 +52,18 @@ chl5233/
       vignettes/
     scripts/
     reports/
+  week5/
+    data/raw/
+    data/processed/
+    R/
+    reports/
+  week6/
+    R/
+    reports/
+    outputs/
 ```
 
-Use `week6/` and subsequent folders for future assignments.
+Use `week7/` and subsequent folders for future assignments.
 
 ## Run Week 1
 
